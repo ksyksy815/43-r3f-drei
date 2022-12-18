@@ -4,6 +4,7 @@ import {
   TransformControls,
   OrbitControls,
   Html,
+  Text,
 } from "@react-three/drei";
 
 export default function Experience() {
@@ -30,7 +31,7 @@ export default function Experience() {
           <sphereGeometry />
           <meshStandardMaterial color="orange" />
           <Html
-            position={[1, 1, 0]}
+            position={[-1, 1, 0]}
             wrapperClass="label"
             center
             distanceFactor={8}
@@ -48,6 +49,14 @@ export default function Experience() {
         <planeGeometry />
         <meshStandardMaterial color="greenyellow" />
       </mesh>
+      <Text
+        font="./bangers-v20-latin-regular.woff"
+        color={"salmon"}
+        fontSize={0.8}
+        position={[0, 1.5, 0]}
+        textAlign="center">
+        Yes, I am text.
+      </Text>
     </>
   );
 }
