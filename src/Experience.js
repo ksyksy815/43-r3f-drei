@@ -3,11 +3,13 @@ import {
   PivotControls,
   TransformControls,
   OrbitControls,
+  Html,
 } from "@react-three/drei";
 
 export default function Experience() {
   /**** Hooks  ****/
 
+  const sphereRef = useRef();
   const cubeRef = useRef();
 
   /**** Render  ****/
@@ -24,9 +26,17 @@ export default function Experience() {
         lineWidth={4}
         axisColors={["#9381ff", "#ff4d6d", "#7ae582"]}
         scale={1.5}>
-        <mesh position-x={-2}>
+        <mesh position-x={-2} ref={sphereRef}>
           <sphereGeometry />
           <meshStandardMaterial color="orange" />
+          <Html
+            position={[1, 1, 0]}
+            wrapperClass="label"
+            center
+            distanceFactor={8}
+            occlude={[sphereRef, cubeRef]}>
+            I am sphere
+          </Html>
         </mesh>
       </PivotControls>
       <mesh position-x={2} scale={1.5} ref={cubeRef}>
