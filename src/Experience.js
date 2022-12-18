@@ -5,6 +5,7 @@ import {
   OrbitControls,
   Html,
   Text,
+  Float,
 } from "@react-three/drei";
 
 export default function Experience() {
@@ -26,7 +27,7 @@ export default function Experience() {
         depthTest={false}
         lineWidth={4}
         axisColors={["#9381ff", "#ff4d6d", "#7ae582"]}
-        scale={1.5}>
+        scale={0.7}>
         <mesh position-x={-2} ref={sphereRef}>
           <sphereGeometry />
           <meshStandardMaterial color="orange" />
@@ -40,7 +41,7 @@ export default function Experience() {
           </Html>
         </mesh>
       </PivotControls>
-      <mesh position-x={2} scale={1.5} ref={cubeRef}>
+      <mesh position-x={2} scale={1} ref={cubeRef}>
         <boxGeometry />
         <meshStandardMaterial color="mediumpurple" />
       </mesh>
@@ -49,14 +50,16 @@ export default function Experience() {
         <planeGeometry />
         <meshStandardMaterial color="greenyellow" />
       </mesh>
-      <Text
-        font="./bangers-v20-latin-regular.woff"
-        color={"salmon"}
-        fontSize={0.8}
-        position={[0, 1.5, 0]}
-        textAlign="center">
-        Yes, I am text.
-      </Text>
+      <Float speed={5} floatIntensity={2}>
+        <Text
+          font="./bangers-v20-latin-regular.woff"
+          color={"salmon"}
+          fontSize={0.8}
+          position={[0, 2, 0]}
+          textAlign="center">
+          I am text and floating.
+        </Text>
+      </Float>
     </>
   );
 }
